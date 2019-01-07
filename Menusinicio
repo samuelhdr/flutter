@@ -1,0 +1,66 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(new MaterialApp(
+  home: MyApp(),
+  ));
+  
+}
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    final double IconSize =  50.0;
+    final double FontSize = 20.0;
+    final TextStyle textStyle = new TextStyle(
+      color:  Colors.blue, fontSize: 20.0
+    ); 
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Stateless widget'),
+        ),
+        body: new Container(
+          child: new Center(
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+             new MyCard(title: new Text("Me Gusta Flutter", style:  new TextStyle(color: Colors.blue, fontSize: FontSize
+             ),),
+             icon: new Icon(Icons.favorite, size: IconSize, color:  Colors.redAccent,)),
+             new MyCard(title: new Text("Me Gusta el video", style: textStyle),
+             icon: new Icon(Icons.theaters, size: IconSize, color:  Colors.blueAccent,)),
+              new MyCard(title: new Text("Me Gusta esta vaina", style: textStyle),
+             icon: new Icon(Icons.bluetooth, size: IconSize, color: Colors.lightBlueAccent,)),
+             new MyCard(title: new Text("Me Gusta Samuel", style: textStyle),
+             icon: new Icon(Icons.select_all, size: IconSize, color:  Colors.redAccent,)),
+            ],
+          ),
+        )
+        ),
+    );
+  }  
+} 
+
+
+class MyCard extends StatelessWidget{
+  final Widget title;
+  final Widget icon;
+
+  MyCard({this.title, this.icon});
+  @override
+  Widget build(BuildContext context){
+    return new Container(
+      padding: const EdgeInsets.only(bottom: 1.0),
+      child: new Card(
+        child: new Container(
+          padding: const EdgeInsets.all(20.0),
+        
+        child: new Column(
+          children: <Widget>[this.title, this.icon],
+        )
+      ),
+    )
+    );
+  }
+
+}
+
